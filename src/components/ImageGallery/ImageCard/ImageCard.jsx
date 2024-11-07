@@ -1,14 +1,17 @@
-import PropTypes from "prop-types";
+import css from './ImageCard.module.css';
 
-const ImageCard = ({ src, alt }) => (
-  <div>
-    <img src={src} alt={alt} />
-  </div>
-);
-
-ImageCard.propTypes = {
-  src: PropTypes.string.isRequired,
-  alt: PropTypes.string,
+const ImageCard = ({ urls: { small }, alt_description, onShowModal }) => {
+  return (
+    <div>
+      <img
+        className={css.image}
+        src={small}
+        alt={alt_description}
+        loading="lazy"
+        onClick={onShowModal}
+      />
+    </div>
+  );
 };
 
 export default ImageCard;
